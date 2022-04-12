@@ -11,7 +11,7 @@
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 880px) {
   .profile__button_add {
     width: 100%;
     max-width: 282px;
