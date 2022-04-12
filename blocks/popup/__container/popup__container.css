@@ -2,7 +2,8 @@
   position: relative;
   z-index: 101;
 
-  max-width: 430px;
+  width: 430px;
+  min-width: 282px;
   box-sizing: border-box;
 
   padding: 34px 36px 37px 36px;
