@@ -6,7 +6,6 @@
 
   margin-top: 48px;
 
-  font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
@@ -25,4 +24,11 @@
 
 .popup__button:hover {
   opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+  .popup__button {
+    font-size: 14px;
+    line-height: 17px;
+  }
 }

@@ -2,7 +2,7 @@
   position: relative;
   z-index: 101;
 
-  width: 430px;
+  max-width: 430px;
   box-sizing: border-box;
 
   padding: 34px 36px 37px 36px;
@@ -18,7 +18,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .profile {
-    width: 282px;
+  .popup__container {
+    padding: 25px 22px 25px 22px;
   }
 }

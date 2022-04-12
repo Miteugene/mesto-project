@@ -1,13 +1,7 @@
 .header__link {
   display: block;
-  width: 142px;
 }
 
 
-@media screen and (max-width: 768px) {
-  .header__link {
-    width: 103px;
-  }
-}
 
 
