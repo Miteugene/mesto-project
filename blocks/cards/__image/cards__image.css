@@ -1,0 +1,9 @@
+.cards__image {
+  width: 282px;
+  height: 282px;
+
+  position: relative;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
