@@ -18,6 +18,11 @@
   display: inline-block;
   vertical-align: super;
 
+  background-image: url(../../../images/controls/close.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
   transition: opacity 0.5s;
 }
 

@@ -17,13 +17,11 @@
 
       <section class="profile">
         <div class="profile__card">
-          <div class="profile__avatar-container">
-            <img class="profile__avatar" src="./images/jacques_cousteau.jpg" alt="Жак-Ив Кусто">
-          </div>
+          <img class="profile__avatar" src="./images/jacques_cousteau.jpg" alt="Жак-Ив Кусто">
           <div class="profile__info">
             <div class="profile__info-name-wrapper">
               <h1 class="profile__info-name">Жак-Ив Кусто</h1>
-              <button class="profile__button profile__button_edit"></button>
+              <button type="button" class="profile__button profile__button_edit"></button>
             </div>
             <p class="profile__info-about">Исследователь океана</p>
           </div>
@@ -36,8 +34,8 @@
           <li class="cards__item">
             <img class="cards__image" src="./images/places/great_blue_hole.jpg" alt="Большая голубая дыра">
             <div class="cards__info">
-              <h2 class="cards__title">Большая голубая дыра</h2>
-              <div class="cards__like cards__like_active"></div>
+              <h2 class="cards__title">Карачаево-Черкесия</h2>
+              <button type="button" class="cards__like-button cards__like-button_active"></button>
             </div>
           </li>
 
@@ -45,7 +43,7 @@
             <img class="cards__image" src="./images/places/amazon.jpg" alt="Амазонка">
             <div class="cards__info">
               <h2 class="cards__title">Амазонка</h2>
-              <div class="cards__like"></div>
+              <button type="button" class="cards__like-button"></button>
             </div>
           </li>
 
@@ -53,7 +51,7 @@
             <img class="cards__image" src="./images/places/great_barrier_reef.jpg" alt="Большой Барьерный риф">
             <div class="cards__info">
               <h2 class="cards__title">Большой Барьерный риф</h2>
-              <div class="cards__like"></div>
+              <button type="button" class="cards__like-button"></button>
             </div>
           </li>
 
@@ -61,7 +59,7 @@
             <img class="cards__image" src="./images/places/antarctica.jpg" alt="Антарктида">
             <div class="cards__info">
               <h2 class="cards__title">Антарктида</h2>
-              <div class="cards__like"></div>
+              <button type="button" class="cards__like-button"></button>
             </div>
           </li>
 
@@ -69,7 +67,7 @@
             <img class="cards__image" src="./images/places/madagascar.jpg" alt="Мадагаскар">
             <div class="cards__info">
               <h2 class="cards__title">Мадагаскар</h2>
-              <div class="cards__like"></div>
+              <button type="button" class="cards__like-button"></button>
             </div>
           </li>
 
@@ -77,7 +75,7 @@
             <img class="cards__image" src="./images/places/new_zeland.jpg" alt="Новая Зеландия">
             <div class="cards__info">
               <h2 class="cards__title">Новая Зеландия</h2>
-              <div class="cards__like"></div>
+              <button type="button" class="cards__like-button"></button>
             </div>
           </li>
         </ul>
@@ -89,43 +87,19 @@
       <p class="footer__author">&copy; Виктор Абанькин</p>
     </footer>
 
-    <div class="popup popup_opened" id="popup"> <!-- popup_opened -->
-      <form class="popup__container">
-        <h2 class="popup__header">Редактировать профиль</h2>
-        <input type="text" class="popup__input-text" placeholder="Персона" name="name" value="Жак-Ив Кусто">
-        <input type="text" class="popup__input-text" placeholder="Род деятельности" name="occupation" value="Исследователь океана">
-        <button type="submit" class="popup__button">Сохранить</button>
-        <button type="button" class="popup__button-close">
-          <img class="popup__image-close" src="./images/controls/close.svg" alt="Закрыть">
-        </button>
-      </form>
+    <div class="popup popup_opened"> <!-- popup_opened -->
+      <div class="popup__container">
+        <button type="button" class="popup__button-close"></button>
+        <form name="form_profile" class="popup__form">
+          <h2 class="popup__header">Редактировать профиль</h2>
+          <input type="text" class="popup__input-text" placeholder="Персона" name="name" value="Жак-Ив Кусто">
+          <input type="text" class="popup__input-text" placeholder="Род деятельности" name="occupation" value="Исследователь океана">
+          <button type="submit" class="popup__button">Сохранить</button>
+        </form>
+      </div>
     </div>
 
   </div>
 
-  <script>
-    // Небольшой код для удобства открытия/скрытия popup
-    function showPopup() {
-      let popup = document.getElementById('popup');
-      if ( popup.classList.contains('popup_opened') )
-        popup.classList.remove('popup_opened');
-      else
-        popup.classList.add('popup_opened');
-    }
-    document.getElementsByClassName('profile__button_edit')[0].addEventListener("click", showPopup);
-    document.getElementsByClassName('popup__button-close')[0].addEventListener("click", showPopup);
-
-    let like_buttons = document.getElementsByClassName('cards__like');
-
-    function likeClick(event) {
-      if ( event.target.classList.contains('cards__like_active') )
-        event.target.classList.remove('cards__like_active');
-      else
-        event.target.classList.add('cards__like_active');
-    }
-
-    for (var i = 0; i < like_buttons.length; i++)
-      like_buttons[i].addEventListener("click", likeClick);
-  </script>
 </body>
 </html>
