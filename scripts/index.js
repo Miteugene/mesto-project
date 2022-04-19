@@ -145,8 +145,9 @@ function addCard(card) {
 }
 
 function initCards(initialCards) {
-  for (let i = 0; i < initialCards.length; i++)
-    addCard(initialCards[i]);
+  initialCards.forEach(cardObj => {
+    addCard(cardObj);
+  });
 }
 
 initCards(initialCards);
