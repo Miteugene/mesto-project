@@ -23,7 +23,7 @@
               <h1 class="profile__info-name">Жак-Ив Кусто</h1>
               <button type="button" class="profile__button profile__button_edit"></button>
             </div>
-            <p class="profile__info-about">Исследователь океана</p>
+            <p class="profile__info-job">Исследователь океана</p>
           </div>
         </div>
         <button type="button" class="profile__button profile__button_add"></button>
@@ -31,53 +31,7 @@
 
       <section class="elements">
         <ul class="cards">
-          <li class="cards__item">
-            <img class="cards__image" src="./images/places/great_blue_hole.jpg" alt="Большая голубая дыра">
-            <div class="cards__info">
-              <h2 class="cards__title">Карачаево-Черкесия</h2>
-              <button type="button" class="cards__like-button cards__like-button_active"></button>
-            </div>
-          </li>
-
-          <li class="cards__item">
-            <img class="cards__image" src="./images/places/amazon.jpg" alt="Амазонка">
-            <div class="cards__info">
-              <h2 class="cards__title">Амазонка</h2>
-              <button type="button" class="cards__like-button"></button>
-            </div>
-          </li>
-
-          <li class="cards__item">
-            <img class="cards__image" src="./images/places/great_barrier_reef.jpg" alt="Большой Барьерный риф">
-            <div class="cards__info">
-              <h2 class="cards__title">Большой Барьерный риф</h2>
-              <button type="button" class="cards__like-button"></button>
-            </div>
-          </li>
-
-          <li class="cards__item">
-            <img class="cards__image" src="./images/places/antarctica.jpg" alt="Антарктида">
-            <div class="cards__info">
-              <h2 class="cards__title">Антарктида</h2>
-              <button type="button" class="cards__like-button"></button>
-            </div>
-          </li>
-
-          <li class="cards__item">
-            <img class="cards__image" src="./images/places/madagascar.jpg" alt="Мадагаскар">
-            <div class="cards__info">
-              <h2 class="cards__title">Мадагаскар</h2>
-              <button type="button" class="cards__like-button"></button>
-            </div>
-          </li>
-
-          <li class="cards__item">
-            <img class="cards__image" src="./images/places/new_zeland.jpg" alt="Новая Зеландия">
-            <div class="cards__info">
-              <h2 class="cards__title">Новая Зеландия</h2>
-              <button type="button" class="cards__like-button"></button>
-            </div>
-          </li>
+          <!-- Тут будет список карточек -->
         </ul>
       </section>
 
@@ -87,19 +41,43 @@
       <p class="footer__author">&copy; Виктор Абанькин</p>
     </footer>
 
-    <div class="popup popup_opened"> <!-- popup_opened -->
+    <div class="popup" id="popup-profile">
       <div class="popup__container">
-        <button type="button" class="popup__button-close"></button>
+        <button type="button" class="popup__button-close" id="popup-profile__close"></button>
         <form name="form_profile" class="popup__form">
           <h2 class="popup__header">Редактировать профиль</h2>
-          <input type="text" class="popup__input-text" placeholder="Персона" name="name" value="Жак-Ив Кусто">
-          <input type="text" class="popup__input-text" placeholder="Род деятельности" name="occupation" value="Исследователь океана">
-          <button type="submit" class="popup__button">Сохранить</button>
+          <input type="text" class="popup__input-text" id="popup-profile__name" placeholder="Имя" value="">
+          <input type="text" class="popup__input-text" id="popup-profile__job"  placeholder="Род деятельности" value="">
+          <button type="submit" class="popup__button-submit" id="popup-profile__submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup" id="popup-place">
+      <div class="popup__container">
+        <button type="button" class="popup__button-close" id="popup-place__close"></button>
+        <form name="form_profile" class="popup__form">
+          <h2 class="popup__header">Новое место</h2>
+          <input type="text" class="popup__input-text" id="popup-place__name" placeholder="Название" value="">
+          <input type="text" class="popup__input-text" id="popup-place__link" placeholder="Ссылка на картинку" value="">
+          <button type="submit" class="popup__button-submit" id="popup-place__submit">Создать</button>
         </form>
       </div>
     </div>
 
   </div>
 
+  <template id="card-template">
+    <li class="cards__item">
+      <img class="cards__image" src="" alt="Прекрасная картинка">
+      <div class="cards__info">
+        <h2 class="cards__title"></h2>
+        <button type="button" class="cards__like-button"></button>
+      </div>
+      <button type="button" class="cards__delete-button"></button>
+    </li>
+  </template>
+
+  <script src="scripts/index.js"></script>
 </body>
 </html>
