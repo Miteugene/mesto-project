@@ -21,12 +21,12 @@
           <div class="profile__info">
             <div class="profile__info-name-wrapper">
               <h1 class="profile__info-name">Жак-Ив Кусто</h1>
-              <button type="button" class="profile__button profile__button_edit"></button>
+              <button type="button" class="profile__button profile__button_type_edit"></button>
             </div>
             <p class="profile__info-job">Исследователь океана</p>
           </div>
         </div>
-        <button type="button" class="profile__button profile__button_add"></button>
+        <button type="button" class="profile__button profile__button_type_add"></button>
       </section>
 
       <section class="elements">
@@ -41,35 +41,44 @@
       <p class="footer__author">&copy; Виктор Абанькин</p>
     </footer>
 
-    <div class="popup" id="popup-profile">
-      <div class="popup__container">
-        <button type="button" class="popup__button-close" id="popup-profile__close"></button>
+    <div class="popup popup_type_profile">
+      <div class="popup__container popup__container_type_form">
+        <button type="button" class="popup__button-close popup__button-close_type_profile"></button>
         <form name="form_profile" class="popup__form">
           <h2 class="popup__header">Редактировать профиль</h2>
-          <input type="text" class="popup__input-text" id="popup-profile__name" placeholder="Имя" value="">
-          <input type="text" class="popup__input-text" id="popup-profile__job"  placeholder="Род деятельности" value="">
-          <button type="submit" class="popup__button-submit" id="popup-profile__submit">Сохранить</button>
+          <input type="text" class="popup__input-text popup__input-text_type_name" placeholder="Имя" value="">
+          <input type="text" class="popup__input-text popup__input-text_type_job"  placeholder="Род деятельности" value="">
+          <button type="submit" class="popup__button-submit popup__button-submit_type_profile">Сохранить</button>
         </form>
       </div>
     </div>
 
-    <div class="popup" id="popup-place">
-      <div class="popup__container">
-        <button type="button" class="popup__button-close" id="popup-place__close"></button>
+    <div class="popup popup_type_place">
+      <div class="popup__container popup__container_type_form">
+        <button type="button" class="popup__button-close popup__button-close_type_place"></button>
         <form name="form_profile" class="popup__form">
           <h2 class="popup__header">Новое место</h2>
-          <input type="text" class="popup__input-text" id="popup-place__name" placeholder="Название" value="">
-          <input type="text" class="popup__input-text" id="popup-place__link" placeholder="Ссылка на картинку" value="">
-          <button type="submit" class="popup__button-submit" id="popup-place__submit">Создать</button>
+          <input type="text" class="popup__input-text popup__input-text_type_place" placeholder="Название" value="">
+          <input type="text" class="popup__input-text popup__input-text_type_link"  placeholder="Ссылка на картинку" value="">
+          <button type="submit" class="popup__button-submit popup__button-submit_type_place">Создать</button>
         </form>
+      </div>
+    </div>
+
+    <div class="popup popup_type_view">
+      <div class="popup__container popup__container_type_view">
+        <button type="button" class="popup__button-close popup__button-close_type_view"></button>
+        <img class="popup__view-image" src="#" alt="Картинка">
+        <p class="popup__view-title"></p>
       </div>
     </div>
 
   </div>
 
+  <!-- templates -->
   <template id="card-template">
     <li class="cards__item">
-      <img class="cards__image" src="" alt="Прекрасная картинка">
+      <img class="cards__image" src="" alt="">
       <div class="cards__info">
         <h2 class="cards__title"></h2>
         <button type="button" class="cards__like-button"></button>
@@ -78,6 +87,17 @@
     </li>
   </template>
 
-  <script src="scripts/index.js"></script>
+  <!-- scripts -->
+  <script src="./blocks/popup/popup.js"></script>
+  <script src="./blocks/popup/__button-close/popup__button-close.js"></script>
+  <script src="./blocks/popup/__button-submit/_type/popup__button-submit_type_place.js"></script>
+  <script src="./blocks/popup/__button-submit/_type/popup__button-submit_type_profile.js"></script>
+
+  <script src="./blocks/profile/profile.js"></script>
+  <script src="./blocks/profile/__button/profile__button.js"></script>
+
+  <script src="./blocks/cards/cards.js"></script>
+
+  <script src="./pages/index.js"></script>
 </body>
 </html>
