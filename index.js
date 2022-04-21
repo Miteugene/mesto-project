@@ -29,6 +29,7 @@ const profileNameTitleElement = document.querySelector('.profile__info-name');
 const profileJobTitleElement  = document.querySelector('.profile__info-job');
 
 const profilePopup            = document.querySelector('.popup_type_profile');
+const formProfile             = document.querySelector('.popup__form_type_profile');
 const formProfileNameInput    = document.querySelector('.popup__input-text_type_name');
 const formProfileJobInput     = document.querySelector('.popup__input-text_type_job');
 
@@ -37,63 +38,55 @@ const viewImage               = document.querySelector('.popup__view-image');
 const viewTitle               = document.querySelector('.popup__view-title');
 
 const placePopup              = document.querySelector('.popup_type_place');
+const formPlace               = document.querySelector('.popup__form_type_place');
 const formPlaceNameInput      = document.querySelector('.popup__input-text_type_place');
 const formPlaceLinkInput      = document.querySelector('.popup__input-text_type_link');
 
 const cardsContainer          = document.querySelector('.cards');
 const placeTemplate           = document.querySelector('#card-template').content;
 
-document.querySelector('.profile__button_type_add').addEventListener('click', openPopup);
-document.querySelector('.profile__button_type_edit').addEventListener('click', openPopup);
 
-document.querySelector('.popup__button-close_type_profile').addEventListener('click', closePopup);
-document.querySelector('.popup__button-close_type_view').addEventListener('click', closePopup);
-document.querySelector('.popup__button-close_type_place').addEventListener('click', closePopup);
+formProfile.addEventListener('submit', submitPopupProfile);
+formPlace.addEventListener('submit', submitPopupPlace);
 
-document.querySelector('.popup__button-submit_type_profile').addEventListener('click', submitPopupProfile);
-document.querySelector('.popup__button-submit_type_place').addEventListener('click', submitPopupPlace);
+
+document.querySelector('.profile__button_type_add').addEventListener('click', openPopupPlace);
+document.querySelector('.profile__button_type_edit').addEventListener('click', openPopupProfile);
+
+const popups = document.querySelectorAll('.popup');
+popups.forEach((popup) => {
+  popup.querySelector('.popup__button-close').addEventListener('click', () => {
+    closePopup(popup);
+  });
+});
 
 
 initCards(initialCards);
 
-// Общая функция открытия popup, прошлый вариант мне нравился больше,
-// а тут лишние дейсвия с поиском класса чтоб потом правильно обработать
-// разную логику открытия попапов
-function openPopup(evt) {
-  if ( evt.target.classList.contains('profile__button_type_edit') ) {
-    openPopupProfile();
-  } else
-  if ( evt.target.classList.contains('profile__button_type_add') ) {
-    openPopupPlace();
-  } else
-  if ( evt.target.classList.contains('cards__image') ) {
-    const cardObj = { name: evt.target.alt, link: evt.target.src };
-    openPopupView(cardObj);
-  }
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+}
+
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
 }
 
 function openPopupProfile() {
   formProfileNameInput.value = profileNameTitleElement.textContent;
   formProfileJobInput.value  = profileJobTitleElement.textContent;
-  profilePopup.classList.add('popup_opened');
+  openPopup(profilePopup);
 }
 
 function openPopupPlace() {
-  placePopup.classList.add('popup_opened');
+  openPopup(placePopup);
 }
 
 function openPopupView(cardObj) {
   viewImage.src = cardObj.link;
   viewImage.alt = cardObj.name;
   viewTitle.textContent = cardObj.name;
-  viewPopup.classList.add('popup_opened');
+  openPopup(viewPopup);
 }
-
-
-function closePopup(evt) {
-  evt.target.closest('.popup').classList.remove('popup_opened');
-}
-
 
 function submitPopupProfile(evt) {
   evt.preventDefault();
@@ -112,8 +105,7 @@ function submitPopupPlace(evt) {
     'link': formPlaceLinkInput.value
   });
 
-  formPlaceNameInput.value = '';
-  formPlaceLinkInput.value = '';
+  formPlace.reset();
 
   placePopup.classList.remove('popup_opened');
 }
@@ -138,7 +130,7 @@ function createCard(cardObj) {
   const cardImage = cardElement.querySelector('.cards__image');
   cardImage.src = cardObj.link;
   cardImage.alt = cardObj.name;
-  cardImage.addEventListener('click', openPopup);
+  cardImage.addEventListener('click', () => { openPopupView(cardObj); });
 
   cardElement.querySelector('.cards__like-button').addEventListener('click', likeCard);
   cardElement.querySelector('.cards__delete-button').addEventListener('click', deleteCard);
