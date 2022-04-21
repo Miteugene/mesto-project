@@ -94,7 +94,7 @@ function submitPopupProfile(evt) {
   profileNameTitleElement.textContent = formProfileNameInput.value;
   profileJobTitleElement.textContent  = formProfileJobInput.value;
 
-  profilePopup.classList.remove('popup_opened');
+  closePopup(profilePopup);
 }
 
 function submitPopupPlace(evt) {
@@ -107,7 +107,7 @@ function submitPopupPlace(evt) {
 
   formPlace.reset();
 
-  placePopup.classList.remove('popup_opened');
+  closePopup(placePopup);
 }
 
 
